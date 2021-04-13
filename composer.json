@@ -1,0 +1,54 @@
+{
+    "name": "tailonperin/laravel-utalk-api",
+    "description": "Package for Umbler Utalk integration with Laravel",
+    "keywords": [
+        "tailonperin",
+        "laravel-utalk-api"
+    ],
+    "homepage": "https://github.com/tailonperin/laravel-utalk-api",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tailon Perin",
+            "email": "tailonedson@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tailonperin\\LaravelUtalkApi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tailonperin\\LaravelUtalkApi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tailonperin\\LaravelUtalkApi\\LaravelUtalkApiServiceProvider"
+            ],
+            "aliases": {
+                "LaravelUtalkApi": "Tailonperin\\LaravelUtalkApi\\LaravelUtalkApiFacade"
+            }
+        }
+    }
+}
