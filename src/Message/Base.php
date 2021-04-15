@@ -58,6 +58,11 @@ abstract class Base
         return [];
     }
 
+    protected function changeDefaultParams($params)
+    {
+        return $params;
+    }
+
     public function enviar()
     {
         $id = $this->generateRandomId();
@@ -71,8 +76,9 @@ abstract class Base
             'msg' => $this->msg,
         ];
 
+        $paramsDefault = $this->changeDefaultParams($paramsDefault);
         $params = array_merge($paramsDefault, $this->extraParams());
-
+        
         $response = Http::get($url, $params);
 
         return [

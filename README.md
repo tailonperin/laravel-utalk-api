@@ -18,7 +18,27 @@ composer require tailonperin/laravel-utalk-api
 ## Usage
 
 ``` php
-// Usage description here
+// Simple Message (Plain Text)
+$response = (new \Tailonperin\LaravelUtalkApi\Message\PlainTextMessage('chat code'))
+        ->to('Phone Number')
+        ->setMsg('Simple Text sended via API')
+        ->enviar();
+
+// Media Message
+$return = (new \Tailonperin\LaravelUtalkApi\Message\MediaMessage('u4m5of2'))
+        ->to('Phone Number')
+        ->setMsg('Text below media')
+        ->addMedia('https://www.imagescanada.ca/wp-content/uploads/2018/09/Best-nature-spots-to-take-photos-in-Canada.jpg')
+        ->enviar();
+
+// Link Message (with custom thumnail)
+$return = (new \Tailonperin\LaravelUtalkApi\Message\LinkMessage('u4m5of2'))
+        ->to('Phone Number')
+        ->addLink('https://www.youtube.com/watch?v=IpgJYibsi-4')
+        ->addThumbnail('https://i.imgur.com/vHlPnjS.jpg')
+        ->addTitle('Test with thumbnail')
+        ->addDescription('Description of link')
+        ->enviar();
 ```
 
 ### Testing

@@ -40,6 +40,13 @@ class LinkMessage extends Base
         return $this;
     }
 
+    protected function changeDefaultParams($params)
+    {
+        unset($params['msg']);
+        
+        return $params;
+    }
+
     protected function extraParams()
     {
         return [
